@@ -5,18 +5,16 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonSyntaxException;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-import java.util.Map;
 
 public class APIReader {
 
     private String url = null;
 
-    public Menu getMenuForToday() {
+    public Menu getMenuForDate(Date date) {
         Gson gson = new GsonBuilder().serializeNulls().create();
-        String json = JSON.getJSON(getApiUrlForToday());
+        String json = JSON.getJSON(getApiUrlForDate(date));
         Menu response = null;
         try {
             response = gson.fromJson(json, Menu.class);
@@ -26,12 +24,11 @@ public class APIReader {
         return response;
     }
 
-    private String getApiUrlForToday() {
+    private String getApiUrlForDate(Date date) {
         if (url == null) {
             StringBuilder stringBuilder = new StringBuilder("https://www.amica.fi/api/restaurant/menu/day?date=");
-            Date today = Calendar.getInstance().getTime();
             SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-            stringBuilder.append( df.format(today));
+            stringBuilder.append( df.format(date));
             stringBuilder.append("&language=");
             if (Locale.getDefault().getLanguage().equals("fi")) {
                 stringBuilder.append("fi");

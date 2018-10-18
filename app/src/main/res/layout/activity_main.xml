@@ -11,8 +11,10 @@
         android:id="@+id/textViewRestaurant"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:textAlignment="center"
         android:text="@string/restaurant_name"
         android:textColor="@android:color/background_light"
         android:textSize="32sp"
@@ -22,25 +24,53 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/buttonPreviousDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorAccent"
+        android:text="@string/previous"
+        app:layout_constraintBottom_toBottomOf="@id/textViewDate"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/textViewDate"
+        app:layout_constraintTop_toTopOf="@id/textViewDate" />
+
     <TextView
         android:id="@+id/textViewDate"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:textAlignment="center"
         android:layout_margin="8dp"
         android:layout_marginTop="2dp"
         android:text="15.10.2018"
         android:textColor="@android:color/background_light"
         app:layout_constraintBottom_toTopOf="@id/textViewMeals"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/buttonPreviousDate"
+        app:layout_constraintRight_toLeftOf="@id/buttonNextDate"
         app:layout_constraintTop_toBottomOf="@id/textViewRestaurant" />
+
+    <Button
+        android:id="@+id/buttonNextDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorAccent"
+        android:text="@string/next"
+        app:layout_constraintBottom_toBottomOf="@id/textViewDate"
+        app:layout_constraintLeft_toRightOf="@id/textViewDate"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/textViewDate" />
 
     <TextView
         android:id="@+id/textViewMeals"
+        android:textAlignment="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="18dp"
         android:text="@string/meals"
         android:textColor="@android:color/background_light"
